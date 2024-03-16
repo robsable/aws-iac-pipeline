@@ -12,7 +12,6 @@ Parameters:
     Description: "CodeStar Connection ID (must be 36 characters)"
     MinLength: 36
     MaxLength: 36
-    AllowedPattern: '[a-zA-Z0-9-]*'
 
   SourceRepo:
     Type: String
