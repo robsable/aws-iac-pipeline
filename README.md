@@ -15,11 +15,11 @@ Resources deployed include:
 
 ## Setup your GitHub.com repository
 
-1. Download the [latest release](https://github.com/robsable/aws-iac-pipeline/archive/refs/heads/main.zip) of this project from GitHub.com and extract on your local drive.
-1. Edit the `aws-tf-cicd-main/terraform/providers.tf` file to set values for the S3 backend:
+1. Download the [latest release](https://github.com/robsable/aws-iac-pipeline/archive/refs/tags/v0.1.0.zip) of this project from GitHub.com and extract on your local drive.
+1. Edit the `aws-iac-pipeline/terraform/providers.tf` file to set values for the S3 backend:
    - **bucket** - the name of your S3 bucket
    - **region** - the AWS Region you're working in
-1. Edit the `aws-tf-cicd-main/terraform/variables.tf` file to set values for the following:
+1. Edit the `aws-iac-pipeline/terraform/variables.tf` file to set values for the following:
    - **aws_region** - the AWS Region you're working in
    - **app_name** - a unique name of your choice
    - **app_env** - the environment you're working in (`dev`, `test`, or `prod`)
@@ -37,7 +37,7 @@ Resources deployed include:
 
 1. In the AWS Management Console we'll [create a CloudFormation Stack](https://console.aws.amazon.com/cloudformation/home#/stacks/create) to deploy our pipeline and associated resources.
 1. Specify a template by choosing **Upload a template file** and then the **Choose file** button.
-1. Select the `aws-tf-cicd-main/cloudformation/pipeline-setup.yml` file from your local drive and choose **Next**.
+1. Select the `aws-iac-pipeline/cloudformation/pipeline-setup.yml` file from your local drive and choose **Next**.
 1. Specify stack details and choose **Next**.
    - **Stack name** - a unique name of your choice
    - **AppName** - a unique name of your choice
