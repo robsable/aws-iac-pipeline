@@ -1,9 +1,16 @@
-# Local .terraform directories
+### Mac OS ###
+# Ignore system files
+**/.DS_Store
+
+### Terraform ###
+# Local .terraform directories/files
 **/.terraform/*
+*.terraform.lock.hcl
 
 # .tfstate files
 *.tfstate
 *.tfstate.*
+
 
 # Crash log files
 crash.log
