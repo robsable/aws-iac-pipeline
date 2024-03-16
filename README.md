@@ -24,7 +24,7 @@ Resources deployed include:
    - **app_name** - a unique name of your choice
    - **app_env** - the environment you're working in (`dev`, `test`, or `prod`)
 
-1. Create a new public or private GitHub repository using the contents of the `aws-iac-pipeline-main` directory.
+1. Create a new public or private GitHub repository using the contents of the `aws-iac-pipeline` directory.
 
 ## Connect AWS to GitHub.com
 
