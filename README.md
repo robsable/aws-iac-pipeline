@@ -61,7 +61,7 @@ Follow these same setup steps in different AWS accounts to setup IaC pipelines f
 
 ## Clean Up
 
-1. Empty build artifacts S3 bucket
+1. Delete build artifacts
    - Go to the [S3 buckets](https://s3.console.aws.amazon.com/s3/buckets) list in the AWS Management Console.
    - Find the S3 bucket named `<AppName>-<AWS_ACCOUNT_ID>-build-artifacts`.
    - Select the bucket and choose and **Empty** to delete its contents.
