@@ -1,0 +1,41 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "** INSTALL BUILD TOOLS **"
+      - sudo yum install yum-utils -y -q
+      - sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+      - sudo yum install terraform -y -q
+      - pip install --upgrade pip --quiet
+      - curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash 1> /dev/null
+    finally:
+      - aws --version
+      - terraform --version
+      - tflint --version
+      - python --version
+      - pip3 --version
+
+  pre_build:
+    commands:
+      - cd terraform
+      - terraform init
+      - terraform fmt
+      - terraform validate
+      - tflint --init
+      - tflint --recursive --minimum-failure-severity=error
+
+  build:
+    commands:
+      - terraform plan   
+
+  post_build:
+    commands:
+      - terraform apply -auto-approve
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: .
+  name: BuildArtifact
+  discard-paths: no

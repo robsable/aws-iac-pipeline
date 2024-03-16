@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - sudo yum install yum-utils -y -q
+      - sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+      - sudo yum install terraform -y -q
+
+  pre_build:
+    commands:
+      - cd terraform
+      - terraform init
+      - terraform plan   
+
+  build:
+    commands:
+      - terraform apply -destroy -auto-approve
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: .
+  name: BuildArtifact
+  discard-paths: no
