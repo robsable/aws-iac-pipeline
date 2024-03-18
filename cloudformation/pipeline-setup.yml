@@ -237,3 +237,11 @@ Resources:
         - arn:aws:iam::aws:policy/AWSCloudFormationFullAccess
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
         - arn:aws:iam::aws:policy/AmazonSQSFullAccess
+      Policies:
+        - PolicyName: !Sub 'CloudFormationDeployPolicy-${AppName}'
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: 'cloudwatch:PutMetricAlarm'
+                Resource: 'arn:aws:cloudwatch:*:*:alarm:*'
