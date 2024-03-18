@@ -30,3 +30,19 @@ resource "aws_sqs_queue_redrive_allow_policy" "my_redrive_allow_policy" {
     sourceQueueArns   = [aws_sqs_queue.main_queue.arn]
   })
 }
+
+### CloudWatch Alarm ###
+module "metric_alarm" {
+  source  = "terraform-aws-modules/cloudwatch/aws//modules/metric-alarm"
+  version = "~> 2.0"
+  alarm_name          = "SQS-Alarm-TF"
+  alarm_description   = "NumberOfEmptyReceives alarm for TF SQS Queue"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = 1
+  threshold           = 10
+  period              = 60
+  unit                = "Count"
+  namespace   = "AWS/SQS"
+  metric_name = "NumberOfEmptyReceives"
+  statistic   = "Sum"
+}

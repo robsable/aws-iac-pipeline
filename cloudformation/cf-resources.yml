@@ -61,3 +61,20 @@ Resources:
           Value: !Ref AWS::Region
         - Key: ManagedBy
           Value: "CloudFormation"
+
+  SQSAlarm:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      AlarmName: SQS-Alarm-CF
+      AlarmDescription: NumberOfEmptyReceives alarm for CF SQS Queue
+      MetricName: NumberOfEmptyReceives
+      Namespace: AWS/SQS
+      Statistic: Sum
+      Period: '60'
+      EvaluationPeriods: '1'
+      Threshold: '10'
+      ComparisonOperator: GreaterThanThreshold
+      Dimensions:
+      - Name: QueueName
+        Value:
+          Ref: mainQueue
