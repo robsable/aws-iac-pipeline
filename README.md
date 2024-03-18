@@ -15,16 +15,19 @@ Resources deployed include:
 
 ## Setup your GitHub.com repository
 
-1. Download the [latest release](https://github.com/robsable/aws-iac-pipeline/archive/refs/tags/v0.1.0.zip) of this project from GitHub.com and extract on your local drive.
+1. Download the [latest release](https://github.com/robsable/aws-iac-pipeline/archive/refs/tags/v0.2.0.zip) of this project from GitHub.com and extract it on your local drive.
+1. Go to the [S3 buckets](https://s3.console.aws.amazon.com/s3/buckets) list in the AWS Management Console.
+   - Create a new S3 Bucket that will be used to store the current Terraform state for your resources
+   - Or, note the name of an existing bucket to be used for this purpose
 1. Edit the `aws-iac-pipeline/terraform/providers.tf` file to set values for the S3 backend:
-   - **bucket** - the name of your S3 bucket
+   - **bucket** - the name of your S3 bucket from the previous step
    - **region** - the AWS Region you're working in
 1. Edit the `aws-iac-pipeline/terraform/variables.tf` file to set values for the following:
    - **aws_region** - the AWS Region you're working in
    - **app_name** - a unique name of your choice
    - **app_env** - the environment you're working in (`dev`, `test`, or `prod`)
 
-1. Create a new public or private GitHub repository using the contents of the `aws-iac-pipeline` directory.
+1. Create a new private GitHub repository using the contents of the `aws-iac-pipeline` directory.
 
 ## Connect AWS to GitHub.com
 
