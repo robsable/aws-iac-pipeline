@@ -36,6 +36,8 @@ phases:
 artifacts:
   files:
     - '**/*'
+  exclude-paths: 
+    - ./**/.*/**/*
   base-directory: .
   name: BuildArtifact
   discard-paths: no
