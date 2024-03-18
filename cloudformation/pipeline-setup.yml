@@ -93,6 +93,10 @@ Resources:
                 Resource: 
                   - !Sub 'arn:${AWS::Partition}:s3:::${BuildArtifactsBucket}'
                   - !Sub 'arn:${AWS::Partition}:s3:::${BuildArtifactsBucket}/*'
+              - Effect: Allow
+                Action: 
+                  - 'cloudwatch:*'
+                Resource: 'arn:aws:cloudwatch:*:*:alarm:*'
 
   CodePipelineServiceRole:
     Type: AWS::IAM::Role
