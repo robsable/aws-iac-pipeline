@@ -65,7 +65,8 @@ Resources:
   SQSAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmDescription: CPU alarm for my instance
+      AlarmName: SQS-Alarm-CF
+      AlarmDescription: !Sub 'NumberOfEmptyReceives alarm for ${mainQueue} SQS Queue'
       MetricName: NumberOfEmptyReceives
       Namespace: AWS/SQS
       Statistic: Sum
