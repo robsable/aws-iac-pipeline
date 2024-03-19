@@ -9,9 +9,9 @@ terraform {
   }
 
   backend "s3" {
-    bucket = "YOUR-S3-BUCKET-NAME"
+    bucket = "rs-cf-temp"
     key    = "global/s3/terraform.tfstate"
-    region = "us-east-1"
+    region = "us-east-2"
   }
 }
 
